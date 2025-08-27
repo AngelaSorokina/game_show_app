@@ -1,6 +1,7 @@
 const div = document.getElementById('qwerty');
 const ul = document.getElementById('phrase');
-const btnReset = document.querySelector('.btn__reset');
+const qwerty = document.querySelector('.btn__reset');
+
 
 let missed = 0;
 
@@ -54,3 +55,23 @@ const checkLetter = button => {
   }
 return match;
 };
+
+// listen for the onscreen keyboard to be clicked
+qwerty.addEventListener('click', e => {
+  if (e.target.tagName === 'BUTTON' && e.target.className != 'chosen') {
+    const button = e.target;
+    button.className = 'chosen';
+    button.disabled = true;
+    const letterFound = checkLetter(button);
+    if (letterFound === null) {
+      const hearts = document.querySelectorAll('.tries img');
+      for (let i = 0; i<hearts.length; i++) {
+        if (hearts[i].src.includes('liveHeart')) {
+        hearts[i].src = 'images/lostHeart.png';
+        break;
+        }
+      } 
+      missed++;
+    } 
+  } 
+});

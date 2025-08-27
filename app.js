@@ -38,3 +38,19 @@ const addPhraseToDisplay = arr => {
     }
     
 };
+
+// check if a letter is in the phrase
+const checkLetter = button => {
+  const letters = document.querySelectorAll('li');
+  let match = null;
+  for (let i = 0; i<letters.length; i++) {
+    const li = letters[i];
+    if(button.textContent === li.textContent) {
+      li.classList.add('show');
+       match = button.textContent;
+    } else {
+
+    }
+  }
+return match;
+};

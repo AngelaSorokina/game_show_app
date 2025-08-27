@@ -22,3 +22,19 @@ const randomIndex  = Math.floor(Math.random() * arr.length);
 const phrase = arr[randomIndex];
 return phrase.split('');
 };
+
+//adds the letters of a string to the display
+const addPhraseToDisplay = arr => {
+    for (let i = 0; i<arr.length; i++ ) {
+        const li = document.createElement('li');
+        const character = arr[i];
+        li.textContent = character;
+        if (character === ' ') {
+           li.className = 'space';
+        } else {
+           li.className = 'letter';
+        }
+        ul.appendChild(li);
+    }
+    
+};

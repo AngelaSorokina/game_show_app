@@ -15,3 +15,10 @@ const phrases = [
 btnReset.addEventListener('click', () => {
 btnReset.parentNode.style.display = 'none';
 });
+
+// return a random phrase from an array
+const getRandomPhraseAsArray = arr => {
+const randomIndex  = Math.floor(Math.random() * arr.length);
+const phrase = arr[randomIndex];
+return phrase.split('');
+};

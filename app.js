@@ -1,6 +1,6 @@
-const div = document.getElementById('qwerty');
+const qwerty = document.getElementById('qwerty');
 const ul = document.getElementById('phrase');
-const qwerty = document.querySelector('.btn__reset');
+const btnReset = document.querySelector('.btn__reset');
 
 
 let missed = 0;

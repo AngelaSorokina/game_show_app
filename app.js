@@ -73,5 +73,26 @@ qwerty.addEventListener('click', e => {
       } 
       missed++;
     } 
+    checkWin();
   } 
 });
+
+//check if the game has been won or lost
+const checkWin = () => {
+  const letter = document.querySelectorAll('#phrase li.letter');
+  const show = document.querySelectorAll('#phrase li.show');
+
+  const overlay = document.getElementById('overlay');
+  const headline = overlay.querySelector('h2');
+  if(letter.length > 0 && letter.length === show.length) {
+    overlay.classList.remove('lose');
+    overlay.classList.add('win');
+    headline.textContent = "You Win!";
+    overlay.style.display = 'flex';
+  } else if (missed > 4) {
+    overlay.classList.remove('win');
+    overlay.classList.add('lose');
+    headline.textContent = "You Lose!";
+    overlay.style.display = 'flex';
+  }
+};

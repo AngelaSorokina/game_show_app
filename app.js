@@ -1,5 +1,5 @@
 const qwerty = document.getElementById('qwerty');
-const ul = document.getElementById('phrase');
+const phraseUL = document.querySelector('#phrase ul');
 const btnReset = document.querySelector('.btn__reset');
 
 
@@ -15,6 +15,21 @@ const phrases = [
 
 btnReset.addEventListener('click', () => {
 btnReset.parentNode.style.display = 'none';
+
+const buttons = document.querySelectorAll('button');
+for (let i = 0; i<buttons.length; i++) {
+  buttons[i].disabled = false;
+  buttons[i].className = '';
+}
+
+const hearts = document.querySelectorAll('.tries img');
+for (let i = 0; i<hearts.length; i++) {
+  hearts[i].src = 'images/liveHeart.png';
+}
+missed = 0;
+
+const phraseArray = getRandomPhraseAsArray(phrases);
+addPhraseToDisplay(phraseArray);
 });
 
 // return a random phrase from an array
@@ -26,6 +41,7 @@ return phrase.split('');
 
 //adds the letters of a string to the display
 const addPhraseToDisplay = arr => {
+  phraseUL.innerHTML = '';
     for (let i = 0; i<arr.length; i++ ) {
         const li = document.createElement('li');
         const character = arr[i];
@@ -35,23 +51,20 @@ const addPhraseToDisplay = arr => {
         } else {
            li.className = 'letter';
         }
-        ul.appendChild(li);
-    }
-    
+        phraseUL.appendChild(li);
+    }   
 };
 
 // check if a letter is in the phrase
 const checkLetter = button => {
-  const letters = document.querySelectorAll('li');
+  const letters = document.querySelectorAll('#phrase li');
   let match = null;
   for (let i = 0; i<letters.length; i++) {
     const li = letters[i];
     if(button.textContent === li.textContent) {
       li.classList.add('show');
        match = button.textContent;
-    } else {
-
-    }
+    } 
   }
 return match;
 };

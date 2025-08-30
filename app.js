@@ -77,6 +77,7 @@ qwerty.addEventListener('click', e => {
     button.disabled = true;
     const letterFound = checkLetter(button);
     if (letterFound === null) {
+      button.classList.add('lose');
       const hearts = document.querySelectorAll('.tries img');
       for (let i = 0; i<hearts.length; i++) {
         if (hearts[i].src.includes('liveHeart')) {

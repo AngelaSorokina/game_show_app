@@ -6,7 +6,7 @@
 :root {
   --color-win: #78CF82;
   --color-lose: #D94545;
-  --color-start: #5b85b7;
+  --color-start: #3D3D56;
   --color-neutral: #445069;
   --color-neutral-light: #D2D2D2;
   --color-keys: #37474F;
@@ -14,6 +14,7 @@
   --font-size-large: 60px;
   --font-size-medium: 20px;
   --transition: all .2s ease-in-out;
+  --color-btn-reset: #F3AC61;
 }
 
 /* main */
@@ -54,6 +55,9 @@ button {
   -o-transition: var(--transition);
   transition: var(--transition);
 }
+button.lose {
+  background: var(--color-btn-reset);
+}
 
 .main-container {
   display: flex;
@@ -88,6 +92,11 @@ button {
   border-radius: 5px;
 }
 
+.letter.show {
+  color: #FFF;
+  animation: tilt-shaking 0.25s ease 1;
+}
+
 .space {
   width: 15px;
 }
@@ -114,9 +123,15 @@ button {
 .btn__reset {
   padding: 8px;
   margin: 50px auto;
-  background: #FFFFFF;
+  background: var(--color-btn-reset);
   border-radius: 5px;
   font-size: var(--font-size-medium);
+  box-shadow: 3px 3px 0px #A07B51;
+  cursor: pointer;
+}
+
+.btn__reset:hover {
+  background: #F9B976;
 }
 
 /* Overlay */
@@ -143,7 +158,7 @@ button {
 }
 
 .start a {
-  color: var(--color-win);
+  color: #FFFFFF;
 }
 
 .win {
@@ -151,7 +166,7 @@ button {
 }
 
 .win a {
-  color: var(--color-win);
+  color: #FFFFFF;
 }
 
 .lose {
@@ -159,5 +174,13 @@ button {
 }
 
 .lose a {
-  color: var(--color-lose);
+  color:#FFFFFF;
+}
+
+@keyframes tilt-shaking {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
 }

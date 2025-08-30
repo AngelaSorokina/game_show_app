@@ -121,7 +121,7 @@ button.lose {
 }
 
 .btn__reset {
-  padding: 8px;
+  padding: 16px;
   margin: 50px auto;
   background: var(--color-btn-reset);
   border-radius: 5px;

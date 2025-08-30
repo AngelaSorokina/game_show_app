@@ -27,9 +27,17 @@ function createLetterLI(ch) {
 function showOverlay(status, text) {
   const overlay  = document.getElementById('overlay');
   const headline = overlay.querySelector('h2');
+
   overlay.classList.remove('win', 'lose');
   overlay.classList.add(status);
   headline.textContent = text;
+
+  if (status === 'win' || status === 'lose') {
+    btnReset.textContent = 'Try again';
+  } else {
+    btnReset.textContent = 'Start Game';
+  }
+
   overlay.style.display = 'flex';
 }
 
